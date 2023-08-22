@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="jp">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>組織図</title>
+</head>
+
+<body>
+  <header>
+    <div class="chartTtl">
+      <h2 id="wstCalendar"></h2>
+    </div>
+    <div class="suvTtl">
+      <div id="date"></div>
+      <div class="officerTtl">
+        <div class="officer">役　　　員<span id="">4 名</span></div>
+        <div class="officeWorker">社　　　員<span id="">174 名</span></div>
+        <div class="total">合　　　計<span id="">178 名</span></div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- 役員 -->
+    <div id="top">
+      <div id="sh"><input type="text"><!--株主総会--></div>
+      <div id="rglt"><input type="text"><!--取締役会--></div>
+      <div id="adt"><input type="text"><input type="text"><!--監査役--></div>
+      <div id="presidt"><input type="text"><input type="text"><!--代表取締役会長--></div>
+      <div class="president">
+        <div id="biz"><input type="text"><input type="text"><!--営業本部長--></div>
+        <div id="prez"><input type="text"><input type="text"><!--代表取締役社長--></div>
+        <div id="consult"><input type="text"><input type="text"><!--相談役--></div>
+      </div>
+    </div>
+
+    <!-- 本部 -->
+    <div id="category">
+      <!-- 管理本部 -->
+      <div class="management">
+        <div class="manageGroup">
+          <div class="manageName">
+            <div class="manageTop"><input type="text"><input type="text"></div>
+          </div>
+        </div>
+        <!-- 経営支援室 -->
+        <div class="mngGroup">
+          <div class="mngName">
+            <div class="memberTop"><input type="text"><input type="text"></div>
+          </div>
+          <div class="mngMem"></div>
+        </div>
+        <!-- 営業部 -->
+        <div class="bizGroup">
+          <div class="bizName">
+            <div class="bizGroupName"></div>
+            <div class="bizTop"><input type="text"><input type="text"></div>
+          </div>
+          <div class="bizMem"></div>
+        </div>
+        <!-- 品質管理部 -->
+        <div class="qltGroup">
+          <div class="qltName">
+            <div class="qltGroupName"></div>
+            <div class="qltTop"><input type="text"><input type="text"></div>
+          </div>
+          <div class="qltMem"></div>
+        </div>
+        <!-- スマートエナジーソリューション部 -->
+        <div class="sesGroup">
+          <div class="sesName">
+            <div class="sesGroupName"></div>
+            <div class="sesTop"><input type="text"><input type="text"></div>
+          </div>
+          <div class="sesMem"></div>
+        </div>
+      </div>
+
+      <!-- 開発本部 -->
+      <div class="development">
+        開発本部
+      </div>
+
+      <!-- ICT本部 -->
+      <div class="ict">
+        ICT本部
+      </div>
+
+      <!-- 東北事業所 -->
+      <div class="eastBusiness">
+        東北事業所
+      </div>
+    </div>
+  </main>
+  <script src="index.js"></script>
+</body>
+
+</html>

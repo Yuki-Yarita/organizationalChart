@@ -1,0 +1,165 @@
+.cartTrl {
+  position: absolute;
+  left: 0;
+}
+
+.suvTtl {
+  position: absolute;
+  right: 60px;
+  top: 10px;
+}
+
+.officerTtl {
+  margin-top: 10px;
+}
+
+.officeWorker {
+  border-bottom: 1px solid black;
+}
+
+.officerTtl span {
+  margin-left: 60px;
+}
+
+#top input {
+  text-align: center;
+  height: 94%;
+  width: 90%;
+  border: none;
+  outline: none;
+}
+
+#sh {
+  text-align: center;
+  height: 100%;
+  width: 10%;
+  margin: 0 auto 0 auto;
+  border: 2px solid black;
+}
+
+#rglt {
+  text-align: center;
+  height: 100%;
+  width: 10%;
+  margin: 1% auto 0 auto;
+  border: 2px solid black;
+}
+
+#adt {
+  text-align: center;
+  height: 100%;
+  width: 10%;
+  margin: 0 30% 0 70%;
+  display: block;
+  border: 2px solid black;
+}
+
+#presidt {
+  text-align: center;
+  height: 100%;
+  width: 10%;
+  margin: 0 auto 0 auto;
+  display: block;
+  border: 2px solid black;
+}
+
+.president {
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+#biz,
+#prez,
+#consult {
+  height: 100%;
+  width: 10%;
+  margin: 1% auto 0 auto;
+  display: block;
+  border: 2px solid black;
+}
+
+#category {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 1%;
+}
+
+.manageName,
+.manageName input {
+  background-color: #8edd6f;
+}
+
+.mngName,.mngName input,
+.bizName,.bizName input,
+.qltName,.qltName input,
+.sesName,.sesName input {
+  background-color: #ffba75;
+}
+
+.manageName input,
+.mngName input,
+.bizName input,
+.qltName input,
+.sesName input{
+  text-align: center;
+  height: 46%;
+  width: 98%;
+  border: none;
+  outline: none;
+}
+
+.mngMem input,
+.bizMem input,
+.qltMem input,
+.sesMem input{
+  text-align: center;
+  height: 46%;
+  width: 98%;
+  border: none;
+  outline: none;
+}
+
+.management {
+  border: 1px solid black;
+}
+
+.manageGroup,
+.mngGroup,
+.bizGroup,
+.qltGroup,
+.sesGroup {
+  width: 238px;
+  margin: 0 auto 0 auto;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  border-top: 0px solid black;
+}
+
+.manageName,
+.mngName,
+.bizName,
+.qltName,
+.sesName {
+  font-size: small;
+  height: 46px;
+  width: 238px;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid black;
+}
+
+.mngMem input,
+.bizMem input,
+.qltMem input,
+.sesMem input {
+  height: 100%;
+  width: 98%;
+}
