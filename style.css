@@ -13,6 +13,24 @@
   margin-top: 10px;
 }
 
+.officerTtl input {
+  text-align: right;
+  outline: none;
+  border: none;
+}
+
+.officerTtl button {
+  position: absolute;
+  right: 0;
+  border-radius: 50%;
+  border: none;
+}
+
+.officerTtl button:hover {
+  cursor: pointer;
+  background-color: darkorange;
+}
+
 .officeWorker {
   border-bottom: 1px solid black;
 }
@@ -82,20 +100,41 @@
 
 #category {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
   margin-top: 1%;
 }
 
+.management {
+  width: 12%;
+}
+
+.development {
+  width: 46%;
+}
+
+.ict {
+  width: 30%;
+}
+
+.eastBusiness {
+  width: 12%;
+}
+
+
+
+/* 管理本部 */
 .manageName,
 .manageName input {
   background-color: #8edd6f;
 }
 
-.mngName,.mngName input,
-.bizName,.bizName input,
-.qltName,.qltName input,
-.sesName,.sesName input {
+.mngName,
+.mngName input,
+.bizName,
+.bizName input,
+.qltName,
+.qltName input,
+.sesName,
+.sesName input {
   background-color: #ffba75;
 }
 
@@ -103,7 +142,7 @@
 .mngName input,
 .bizName input,
 .qltName input,
-.sesName input{
+.sesName input {
   text-align: center;
   height: 46%;
   width: 98%;
@@ -114,7 +153,7 @@
 .mngMem input,
 .bizMem input,
 .qltMem input,
-.sesMem input{
+.sesMem input {
   text-align: center;
   height: 46%;
   width: 98%;
@@ -122,16 +161,12 @@
   outline: none;
 }
 
-.management {
-  border: 1px solid black;
-}
-
 .manageGroup,
 .mngGroup,
 .bizGroup,
 .qltGroup,
 .sesGroup {
-  width: 238px;
+  width: 100%;
   margin: 0 auto 0 auto;
   display: flex;
   flex-flow: column;
@@ -148,7 +183,7 @@
 .sesName {
   font-size: small;
   height: 46px;
-  width: 238px;
+  width: 100%;
   display: flex;
   flex-flow: column;
   justify-content: center;
@@ -160,6 +195,283 @@
 .bizMem input,
 .qltMem input,
 .sesMem input {
+  height: 100%;
+  width: 98%;
+}
+
+/* 開発本部 */
+.developGroup>.devGroupBox {
+  display: inline-block;
+  margin: 0;
+}
+
+.readerName,
+.readerName input {
+  background-color: #8edd6f;
+}
+
+.proxyName,
+.proxyName input {
+  background-color: #a4eaf7;
+}
+
+
+.bgColorBox,
+.bgColorBox input {
+  background-color: #73acf7;
+}
+
+.proxyName input {
+  border: none;
+  outline: none;
+  text-align: center;
+}
+
+.readerName input,
+.bgColorBox input {
+  text-align: center;
+  height: 46%;
+  width: 90%;
+  border: none;
+  outline: none;
+}
+
+.firstMem input,
+.secondMem input,
+.thirdMem input,
+.fourthMem input,
+.fifthMem input,
+.sixthMem input,
+.seventhMem input {
+  text-align: center;
+  height: 46%;
+  width: 100%;
+  border: none;
+  outline: none;
+}
+
+.devGroupBox {
+  width: 24%;
+  margin: 0 auto 0 auto;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  border-top: 0px solid black;
+}
+
+.readerName,
+.proxyName {
+  font-size: small;
+  height: 46px;
+  width: 100%;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid black;
+}
+
+.bgColorBox {
+  height: 46px;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid black;
+}
+
+.firstMem,
+.secondMem,
+.thirdMem,
+.fourthMem,
+.fifthMem,
+.sixthMem,
+.seventhMem {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.firstMem input,
+.secondMem input,
+.thirdMem input,
+.fourthMem input,
+.fifthMem input,
+.sixthMem input,
+.seventhMem input {
+  height: 100%;
+  width: 100%;
+}
+
+/* ICT本部 */
+.ictReaderName,
+.ictReaderName input {
+  background-color: #8edd6f;
+}
+
+.ict1Name,
+.ict1Name input,
+.ict2Name,
+.ict2Name input,
+.ict3Name,
+.ict3Name input,
+.ict4Name,
+.ict4Name input,
+.ict5Name,
+.ict5Name input,
+.ict6Name,
+.ict6Name input,
+.ict7Name,
+.ict7Name input {
+  background-color: #73acf7;
+}
+
+.ictReaderName input,
+.ict1Name input,
+.ict2Name input,
+.ict3Name input,
+.ict4Name input,
+.ict5Name input,
+.ict6Name input,
+.ict7Name input {
+  text-align: center;
+  height: 46%;
+  width: 98%;
+  border: none;
+  outline: none;
+}
+
+.ict1Mem input,
+.ict2Mem input,
+.ict3Mem input,
+.ict4Mem input,
+.ict5Mem input,
+.ict6Mem input,
+.ict7Mem input {
+  text-align: center;
+  height: 46%;
+  width: 98%;
+  border: none;
+  outline: none;
+}
+
+.ictReaderGroup {
+  width: 100%;
+  margin: 0 auto 0 auto;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  border-top: 0px solid black;
+
+}
+
+.ict1Group,
+.ict2Group,
+.ict3Group,
+.ict4Group,
+.ict5Group,
+.ict6Group,
+.ict7Group {
+  width: 100%;
+  margin: 0 auto 0 auto;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  border-top: 0px solid black;
+}
+
+.ictReaderName {
+  height: 46px;
+  width: 100%;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid black;
+
+}
+
+.ict1Name,
+.ict2Name,
+.ict3Name,
+.ict4Name,
+.ict5Name,
+.ict6Name,
+.ict7Name {
+  font-size: small;
+  height: 46px;
+  width: 100%;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid black;
+}
+
+.ict1Mem input,
+.ict2Mem input,
+.ict3Mem input,
+.ict4Mem input,
+.ict5Mem input,
+.ict6Mem input,
+.ict7Mem input {
+  height: 100%;
+  width: 98%;
+}
+
+/* 東北事業所 */
+.eastBizName,
+.eastBizName input {
+  background-color: #ffba75;
+}
+
+.eastBizName input {
+  text-align: center;
+  height: 46%;
+  width: 98%;
+  border: none;
+  outline: none;
+}
+
+.eastBizMem input {
+  text-align: center;
+  height: 46%;
+  width: 98%;
+  border: none;
+  outline: none;
+}
+
+.eastBizGroup {
+  width: 100%;
+  margin: 0 auto 0 auto;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  border-top: 0px solid black;
+}
+
+.eastBizName {
+  font-size: small;
+  height: 46px;
+  width: 100%;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid black;
+}
+
+.eastBizMem input {
   height: 100%;
   width: 98%;
 }

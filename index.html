@@ -16,9 +16,10 @@
     <div class="suvTtl">
       <div id="date"></div>
       <div class="officerTtl">
-        <div class="officer">役　　　員<span id="">4 名</span></div>
-        <div class="officeWorker">社　　　員<span id="">174 名</span></div>
-        <div class="total">合　　　計<span id="">178 名</span></div>
+        <div class="officer">役　　　員<input type="text" id="bucho" value="4">　名</div>
+        <div class="officeWorker">社　　　員<input type="text" id="sain" value="174">　名</div>
+        <div class="total">合　　　計<input type="text" id="total" value="178">　名</div>
+        <button onclick="total()">TOTAL</button>
       </div>
     </div>
   </header>
@@ -81,17 +82,138 @@
 
       <!-- 開発本部 -->
       <div class="development">
-        開発本部
+        <!-- 取締役本部長 -->
+        <div class="readerGroup">
+          <div class="readerName">
+            <div class="readerTop"><input type="text"><input type="text"></div>
+          </div>
+        </div>
+        <!-- 本部長代理 -->
+        <div class="proxyGroup">
+          <div class="proxyName">
+            <div class="proxyTop"><input type="text"></div>
+          </div>
+        </div>
+        <div class="developGroup">
+          <!-- 第１グループ -->
+          <div class="devGroupBox">
+            <div class="bgColorBox">
+              <div class="firstTop"><input type="text"><input type="text"></div>
+            </div>
+            <div class="firstMem"></div>
+          </div>
+          <!-- 第２グループ -->
+          <div class="devGroupBox">
+            <div class="bgColorBox">
+              <div class="secondTop"><input type="text"><input type="text"></div>
+            </div>
+            <div class="secondMem"></div>
+          </div>
+          <!-- 第３グループ -->
+          <div class="devGroupBox">
+            <div class="bgColorBox">
+              <div class="thirdTop"><input type="text"><input type="text"></div>
+            </div>
+            <div class="thirdMem"></div>
+          </div>
+          <!-- 第４グループ -->
+          <div class="devGroupBox">
+            <div class="bgColorBox">
+              <div class="fourthTop"><input type="text"><input type="text"></div>
+            </div>
+            <div class="fourthMem"></div>
+          </div>
+          <!-- 研究教育グループ -->
+          <div class="devGroupBox">
+            <div class="bgColorBox">
+              <div class="fifthTop"><input type="text"><input type="text"></div>
+            </div>
+            <div class="fifthMem"></div>
+          </div>
+          <!-- 特定顧客グループ -->
+          <div class="devGroupBox">
+            <div class="bgColorBox">
+              <div class="sixthTop"><input type="text"><input type="text"></div>
+            </div>
+            <div class="sixthMem"></div>
+          </div>
+          <!-- 品証グループ -->
+          <div class="devGroupBox">
+            <div class="bgColorBox">
+              <div class="seventhTop"><input type="text"><input type="text"></div>
+            </div>
+            <div class="seventhMem"></div>
+          </div>
+        </div>
       </div>
 
       <!-- ICT本部 -->
       <div class="ict">
-        ICT本部
+        <!-- ICT本部 -->
+        <div class="ictReaderGroup">
+          <div class="ictReaderName">
+            <div class="ictReaderTop"><input type="text"><input type="text"></div>
+          </div>
+        </div>
+        <!-- 第１グループ -->
+        <div class="ict1Group">
+          <div class="ict1Name">
+            <div class="ict1Top"><input type="text"><input type="text"></div>
+          </div>
+          <div class="ict1Mem"></div>
+        </div>
+        <!-- 第２グループ -->
+        <div class="ict2Group">
+          <div class="ict2Name">
+            <div class="ict2Top"><input type="text"><input type="text"></div>
+          </div>
+          <div class="ict2Mem"></div>
+        </div>
+        <!-- 第３グループ -->
+        <div class="ict3Group">
+          <div class="ict3Name">
+            <div class="ict3Top"><input type="text"><input type="text"></div>
+          </div>
+          <div class="ict3Mem"></div>
+        </div>
+        <!-- 第４グループ -->
+        <div class="ict4Group">
+          <div class="ict4Name">
+            <div class="ict4Top"><input type="text"><input type="text"></div>
+          </div>
+          <div class="ict4Mem"></div>
+        </div>
+        <!-- 第５グループ -->
+        <div class="ict5Group">
+          <div class="ict5Name">
+            <div class="ict5Top"><input type="text"><input type="text"></div>
+          </div>
+          <div class="ict5Mem"></div>
+        </div>
+        <!-- 新人グループ -->
+        <div class="ict6Group">
+          <div class="ict6Name">
+            <div class="ict6Top"><input type="text"><input type="text"></div>
+          </div>
+          <div class="ict6Mem"></div>
+        </div>
+        <!-- 特定プロジェクトグループ -->
+        <div class="ict7Group">
+          <div class="ict7Name">
+            <div class="ict7Top"><input type="text"><input type="text"></div>
+          </div>
+          <div class="ict7Mem"></div>
+        </div>
       </div>
 
       <!-- 東北事業所 -->
       <div class="eastBusiness">
-        東北事業所
+        <div class="eastBizGroup">
+          <div class="eastBizName">
+            <div class="eastBizTop"><input type="text"><input type="text"></div>
+          </div>
+          <div class="eastBizMem"></div>
+        </div>
       </div>
     </div>
   </main>

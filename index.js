@@ -12,9 +12,17 @@ let day = date7.getDate();
 let ad = document.getElementById("wstCalendar");
 ad.innerHTML = "株式会社 亜細亜情報システム 組織図（" + year + "年度）";
 
-//月を出力する
+//年月日を出力する
 let today = document.getElementById("date");
 today.innerHTML = year + "/" + month + "/" + day + "　現在";
+
+function total(){
+  let bucho = document.getElementById("bucho");
+  let sain = document.getElementById("sain");
+  let total = document.getElementById("total");
+
+  total.value =  parseInt(bucho.value)+parseInt(sain.value);
+}
 
 let ais = {
   officer: {
@@ -68,9 +76,10 @@ let ais = {
                 }
               },
               development: {//開発本部
-                name: "金 允泳", position: "取締役 兼 本部長",
+                developName: "開発本部",
+                name: "金 允泳", position: "取締役 （兼） 本部長",
                 groupProxy: {
-                  name: "全 正暉", position: "本部長代理",
+                  name: "全 正暉 部長", position: "本部長代理",
                   group: {
                     group1: {
                       groupName: "第１グループ",
@@ -223,7 +232,8 @@ let ais = {
                 }
               },
               ict: {//ICT本部
-                name: "金 辰奎", position: "取締役副社長 兼 本部長",
+                ictName: "ICT本部",
+                name: "金 辰奎", position: "取締役副社長 （兼） 本部長",
                 group: {
                   group1: {
                     groupName: "第１グループ",
@@ -310,21 +320,23 @@ let ais = {
                       { name: "岩間 俊光", position: "次長" },
                       { name: "趙 祥延", position: "代理" }
                     ]
-                  },
+                  }
                 }
               },
               eastBusiness: {
-                groupName: "東北事業所",
-                groupMember: [
-                  { name: "田中 耕一郎", position: "所長" },
-                  { name: "倉持 誠司", position: "部長" },
-                  { name: "小野寺 大輔", position: "課長" },
-                  { name: "須藤 健", position: "課長" },
-                  { name: "梅山 直貴", position: "課長" },
-                  { name: "佐藤 友明", position: "課長" },
-                  { name: "青木 総司", position: "課長" },
-                  { name: "坪井 快太", position: "主任" }
-                ]
+                group: {
+                  groupName: "東北事業所",
+                  groupMember: [
+                    { name: "田中 耕一郎", position: "所長 （兼）" },
+                    { name: "倉持 誠司", position: "部長" },
+                    { name: "小野寺 大輔", position: "課長" },
+                    { name: "須藤 健", position: "課長" },
+                    { name: "梅山 直貴", position: "課長" },
+                    { name: "佐藤 友明", position: "課長" },
+                    { name: "青木 総司", position: "課長" },
+                    { name: "坪井 快太", position: "主任" }
+                  ]
+                }
               }
             }
           }
@@ -335,133 +347,290 @@ let ais = {
 }
 
 
-//株主総会を取得
-let shareH = document.getElementById("sh");
-shareH.firstChild.value = ais.officer.shareholder;
+// 株主総会を取得
+document.getElementById("sh").firstChild.value = ais.officer.shareholder;
 
-//取締役会を取得
+// 取締役会を取得
 let regulPosition = document.getElementById("rglt");
 regulPosition.firstChild.value = ais.officer.regulation.position;
 
-//監査役を取得
+// 監査役を取得
 let auditName = document.getElementById("adt");
 auditName.children[0].value = ais.officer.regulation.audit.groupName;
-auditName.children[1].value = ais.officer.regulation.audit.position
-  + ais.officer.regulation.audit.name;
+auditName.children[1].value = ais.officer.regulation.audit.position + ais.officer.regulation.audit.name;
 
-//代表取締役会長を取得
+// 代表取締役会長を取得
 let chairmanName = document.getElementById("presidt");
 chairmanName.children[0].value = ais.officer.regulation.audit.chairman.groupName;
 chairmanName.children[1].value = ais.officer.regulation.audit.chairman.name;
 
-//営業本部長を取得X
-let presidentName1 = document.getElementById("biz");
-presidentName1.children[0].value = ais.officer.regulation.audit.chairman.president.prsGroup[0].position;
-presidentName1.children[1].value = ais.officer.regulation.audit.chairman.president.prsGroup[0].name;
+// 役員の要素を取得し、それぞれにデータを設定
+ais.officer.regulation.audit.chairman.president.prsGroup.forEach((prs, index) => {
+  let presidentName = document.getElementById(["biz", "prez", "consult"][index]);
+  presidentName.children[0].value = prs.position;
+  presidentName.children[1].value = prs.name;
+});
 
-//代表取締役社長を取得X
-let presidentName2 = document.getElementById("prez");
-presidentName2.children[0].value = ais.officer.regulation.audit.chairman.president.prsGroup[1].position;
-presidentName2.children[1].value = ais.officer.regulation.audit.chairman.president.prsGroup[1].name;
-
-//相談役を取得
-let presidentName3 = document.getElementById("consult");
-presidentName3.children[0].value = ais.officer.regulation.audit.chairman.president.prsGroup[2].position;
-presidentName3.children[1].value = ais.officer.regulation.audit.chairman.president.prsGroup[2].name;
-
-//管理本部
-let manage = document.getElementsByClassName("manageTop");
-if (manage.length > 0) {
-  manage[0].children[0].value = ais.officer.regulation.audit.chairman.president.category.management.groupName;
-  manage[0].children[1].value = ais.officer.regulation.audit.chairman.president.category.management.position
-    + " " + ais.officer.regulation.audit.chairman.president.category.management.name;
-}
-// 経営支援室
-let mngTop = document.getElementsByClassName("memberTop");
-if (mngTop.length > 0) {
-  mngTop[0].children[0].value = ais.officer.regulation.audit.chairman.president.category.management.mngGroup.groupName;
-  mngTop[0].children[1].value = ais.officer.regulation.audit.chairman.president.category.management.mngGroup.groupMember[0].position
-    + "　" + ais.officer.regulation.audit.chairman.president.category.management.mngGroup.groupMember[0].name;
+// 管理本部
+if (ais.officer.regulation.audit.chairman.president.category.management) {
+  let manage = document.getElementsByClassName("manageTop");
+  let managementData = ais.officer.regulation.audit.chairman.president.category.management;
+  manage[0].children[0].value = managementData.groupName;
+  manage[0].children[1].value = `${managementData.position} ${managementData.name}`;
 }
 
-// for文を使用して指定されたメンバー情報を生成する部分
-let mngMemBox = document.querySelector(".mngMem");
+const management = ais.officer.regulation.audit.chairman.president.category.management;
 
-for (let i = 1; i < ais.officer.regulation.audit.chairman.president.category.management.mngGroup.groupMember.length; i++) {
-  let member = ais.officer.regulation.audit.chairman.president.category.management.mngGroup.groupMember[i];
+const groups1 = [
+  { selector: ".memberTop", group: management.mngGroup },
+  { selector: ".bizTop", group: management.bizGroup },
+  { selector: ".qltTop", group: management.qltGroup },
+  { selector: ".sesTop", group: management.sesGroup },
+];
 
-  let mngCreate = document.createElement("input");
-  mngCreate.setAttribute("type", "text");
-  mngCreate.value = member.name + " " + member.position;
-
-  mngMemBox.appendChild(mngCreate);
+for (const groupInfo of groups1) {
+  const { selector, group } = groupInfo;
+  const container = document.querySelector(selector);
+  container.querySelector("input:nth-child(1)").value = group.groupName;
+  container.querySelector("input:nth-child(2)").value =
+    group.groupMember[0].name + " - " + group.groupMember[0].position;
 }
 
-//営業部
-let bizGroup = document.getElementsByClassName("bizTop");
-if (bizGroup.length > 0) {
-  bizGroup[0].children[0].value =
-    ais.officer.regulation.audit.chairman.president.category.management.bizGroup.groupName;
-  bizGroup[0].children[1].value =
-    ais.officer.regulation.audit.chairman.president.category.management.bizGroup.groupMember[0].position
-    + "　" + ais.officer.regulation.audit.chairman.president.category.management.bizGroup.groupMember[0].name;
+displayGroupMembers(".mngMem", management.mngGroup);
+displayGroupMembers(".bizMem", management.bizGroup);
+displayGroupMembers(".qltMem", management.qltGroup);
+displayGroupMembers(".sesMem", management.sesGroup);
+
+function displayGroupMembers(containerClass, group) {
+  const container = document.querySelector(containerClass);
+  for (let i = 1; i < group.groupMember.length; i++) {
+    const member = group.groupMember[i];
+    const input = document.createElement("input");
+    input.type = "text";
+    input.value = member.name + " - " + member.position;
+    container.appendChild(input);
+  }
 }
 
-// for文を使用して指定されたメンバー情報を生成する部分
-let bizMemBox = document.querySelector(".bizMem");
-for (let i = 1; i < ais.officer.regulation.audit.chairman.president.category.management.bizGroup.groupMember.length; i++) {
-  let member = ais.officer.regulation.audit.chairman.president.category.management.bizGroup.groupMember[i];
-
-  let bizCreate = document.createElement("input");
-  bizCreate.setAttribute("type", "text");
-  bizCreate.value = member.name + " " + member.position;
-
-  bizMemBox.appendChild(bizCreate);
+// 開発本部
+if (ais.officer.regulation.audit.chairman.president.category.development) {
+  let develop = document.getElementsByClassName("readerTop");
+  let developmentData = ais.officer.regulation.audit.chairman.president.category.development;
+  develop[0].children[0].value = developmentData.developName;
+  develop[0].children[1].value = `${developmentData.position} ${developmentData.name}`;
 }
 
-//品質管理部
-let qltGroup = document.getElementsByClassName("qltTop");
-if (qltGroup.length > 0) {
-  qltGroup[0].children[0].value =
-    ais.officer.regulation.audit.chairman.president.category.management.qltGroup.groupName;
-  qltGroup[0].children[1].value =
-    ais.officer.regulation.audit.chairman.president.category.management.qltGroup.groupMember[0].position
-    + "　" + ais.officer.regulation.audit.chairman.president.category.management.qltGroup.groupMember[0].name;
+if (ais.officer.regulation.audit.chairman.president.category.development) {
+  let develop = document.getElementsByClassName("proxyTop");
+  let developmentData = ais.officer.regulation.audit.chairman.president.category.development.groupProxy;
+  develop[0].firstChild.value = `${developmentData.position} ${developmentData.name}`;
 }
 
-// for文を使用して指定されたメンバー情報を生成する部分
-let qltMemBox = document.querySelector(".qltMem");
-for (let i = 1; i < ais.officer.regulation.audit.chairman.president.category.management.qltGroup.groupMember.length; i++) {
-  let member = ais.officer.regulation.audit.chairman.president.category.management.qltGroup.groupMember[i];
+const development = ais.officer.regulation.audit.chairman.president.category.development.groupProxy.group;
 
-  let qltCreate = document.createElement("input");
-  qltCreate.setAttribute("type", "text");
-  qltCreate.value = member.name + " " + member.position;
+const groups2 = [
+  { selector: ".firstTop", group: development.group1 },
+  { selector: ".secondTop", group: development.group2 },
+  { selector: ".thirdTop", group: development.group3 },
+  { selector: ".fourthTop", group: development.group4 },
+  { selector: ".fifthTop", group: development.group5 },
+  { selector: ".sixthTop", group: development.group6 },
+  { selector: ".seventhTop", group: development.group7 },
+];
 
-  qltMemBox.appendChild(qltCreate);
+for (const groupInfo of groups2) {
+  const { selector, group } = groupInfo;
+  const container = document.querySelector(selector);
+  container.querySelector("input:nth-child(1)").value = group.groupName;
+  container.querySelector("input:nth-child(2)").value =
+    group.groupMember[0].name + " - " + group.groupMember[0].position;
 }
 
-//スマートエナジーソリューション部
-let sesGroup = document.getElementsByClassName("sesTop");
-if (sesGroup.length > 0) {
-  sesGroup[0].children[0].value =
-    ais.officer.regulation.audit.chairman.president.category.management.sesGroup.groupName;
-  sesGroup[0].children[1].value =
-    ais.officer.regulation.audit.chairman.president.category.management.sesGroup.groupMember[0].position
-    + "　" + ais.officer.regulation.audit.chairman.president.category.management.sesGroup.groupMember[0].name;
+developGroupMembers(".firstMem", development.group1);
+developGroupMembers(".secondMem", development.group2);
+developGroupMembers(".thirdMem", development.group3);
+developGroupMembers(".fourthMem", development.group4);
+developGroupMembers(".fifthMem", development.group5);
+developGroupMembers(".sixthMem", development.group6);
+developGroupMembers(".seventhMem", development.group7);
+
+function developGroupMembers(containerClass, group) {
+  const container = document.querySelector(containerClass);
+  for (let i = 1; i < group.groupMember.length; i++) {
+    const member = group.groupMember[i];
+    const input = document.createElement("input");
+    input.type = "text";
+    input.value = member.name + " - " + member.position;
+    container.appendChild(input);
+  }
 }
 
-// for文を使用して指定されたメンバー情報を生成する部分
-let sesMemBox = document.querySelector(".sesMem");
-for (let i = 1; i < ais.officer.regulation.audit.chairman.president.category.management.sesGroup.groupMember.length; i++) {
-  let member = ais.officer.regulation.audit.chairman.president.category.management.sesGroup.groupMember[i];
-
-  let sesCreate = document.createElement("input");
-  sesCreate.setAttribute("type", "text");
-  sesCreate.value = member.name + " " + member.position;
-
-  sesMemBox.appendChild(sesCreate);
+// ICT本部
+if (ais.officer.regulation.audit.chairman.president.category.ict) {
+  let ictGroup = document.getElementsByClassName("ictReaderTop");
+  let ictData = ais.officer.regulation.audit.chairman.president.category.ict;
+  ictGroup[0].children[0].value = ictData.ictName;
+  ictGroup[0].children[1].value = `${ictData.position} ${ictData.name}`;
 }
+
+const ict = ais.officer.regulation.audit.chairman.president.category.ict.group;
+
+const groups3 = [
+  { selector: ".ict1Top", group: ict.group1 },
+  { selector: ".ict2Top", group: ict.group2 },
+  { selector: ".ict3Top", group: ict.group3 },
+  { selector: ".ict4Top", group: ict.group4 },
+  { selector: ".ict5Top", group: ict.group5 },
+  { selector: ".ict6Top", group: ict.group6 },
+  { selector: ".ict7Top", group: ict.group7 },
+];
+
+for (const groupInfo of groups3) {
+  const { selector, group } = groupInfo;
+  const container = document.querySelector(selector);
+  container.querySelector("input:nth-child(1)").value = group.groupName;
+  container.querySelector("input:nth-child(2)").value =
+    group.groupMember[0].name + " - " + group.groupMember[0].position;
+}
+
+ictGroupGroupMembers(".ict1Mem", ict.group1);
+ictGroupGroupMembers(".ict2Mem", ict.group2);
+ictGroupGroupMembers(".ict3Mem", ict.group3);
+ictGroupGroupMembers(".ict4Mem", ict.group4);
+ictGroupGroupMembers(".ict5Mem", ict.group5);
+ictGroupGroupMembers(".ict6Mem", ict.group6);
+ictGroupGroupMembers(".ict7Mem", ict.group7);
+
+function ictGroupGroupMembers(containerClass, group) {
+  const container = document.querySelector(containerClass);
+  for (let i = 1; i < group.groupMember.length; i++) {
+    const member = group.groupMember[i];
+    const input = document.createElement("input");
+    input.type = "text";
+    input.value = member.name + " - " + member.position;
+    container.appendChild(input);
+  }
+}
+
+// 東北事業所
+const eastBiz = ais.officer.regulation.audit.chairman.president.category.eastBusiness;
+
+const groups4 = [
+  { selector: ".eastBizTop", group: eastBiz.group },
+];
+
+for (const groupInfo of groups4) {
+  const { selector, group } = groupInfo;
+  const container = document.querySelector(selector);
+  container.querySelector("input:nth-child(1)").value = group.groupName;
+  container.querySelector("input:nth-child(2)").value =
+  group.groupMember[0].position + " - " + group.groupMember[0].name;
+}
+
+eastBizGroupMembers(".eastBizMem", eastBiz.group);
+
+function eastBizGroupMembers(containerClass, group) {
+  const container = document.querySelector(containerClass);
+  for (let i = 1; i < group.groupMember.length; i++) {
+    const member = group.groupMember[i];
+    const input = document.createElement("input");
+    input.type = "text";
+    input.value = member.name + " - " + member.position;
+    container.appendChild(input);
+  }
+}
+
+
+
+
+
+
+// // 経営支援室
+// let mngTop = document.getElementsByClassName("memberTop");
+// if (mngTop.length > 0) {
+//   mngTop[0].children[0].value = ais.officer.regulation.audit.chairman.president.category.management.mngGroup.groupName;
+//   mngTop[0].children[1].value = ais.officer.regulation.audit.chairman.president.category.management.mngGroup.groupMember[0].position
+//     + "　" + ais.officer.regulation.audit.chairman.president.category.management.mngGroup.groupMember[0].name;
+// }
+
+// // for文を使用して指定されたメンバー情報を生成する部分
+// let mngMemBox = document.querySelector(".mngMem");
+
+// for (let i = 1; i < ais.officer.regulation.audit.chairman.president.category.management.mngGroup.groupMember.length; i++) {
+//   let member = ais.officer.regulation.audit.chairman.president.category.management.mngGroup.groupMember[i];
+
+//   let mngCreate = document.createElement("input");
+//   mngCreate.setAttribute("type", "text");
+//   mngCreate.value = member.name + " " + member.position;
+
+//   mngMemBox.appendChild(mngCreate);
+// }
+
+// //営業部
+// let bizGroup = document.getElementsByClassName("bizTop");
+// if (bizGroup.length > 0) {
+//   bizGroup[0].children[0].value =
+//     ais.officer.regulation.audit.chairman.president.category.management.bizGroup.groupName;
+//   bizGroup[0].children[1].value =
+//     ais.officer.regulation.audit.chairman.president.category.management.bizGroup.groupMember[0].position
+//     + "　" + ais.officer.regulation.audit.chairman.president.category.management.bizGroup.groupMember[0].name;
+// }
+
+// // for文を使用して指定されたメンバー情報を生成する部分
+// let bizMemBox = document.querySelector(".bizMem");
+// for (let i = 1; i < ais.officer.regulation.audit.chairman.president.category.management.bizGroup.groupMember.length; i++) {
+//   let member = ais.officer.regulation.audit.chairman.president.category.management.bizGroup.groupMember[i];
+
+//   let bizCreate = document.createElement("input");
+//   bizCreate.setAttribute("type", "text");
+//   bizCreate.value = member.name + " " + member.position;
+
+//   bizMemBox.appendChild(bizCreate);
+// }
+
+// //品質管理部
+// let qltGroup = document.getElementsByClassName("qltTop");
+// if (qltGroup.length > 0) {
+//   qltGroup[0].children[0].value =
+//     ais.officer.regulation.audit.chairman.president.category.management.qltGroup.groupName;
+//   qltGroup[0].children[1].value =
+//     ais.officer.regulation.audit.chairman.president.category.management.qltGroup.groupMember[0].position
+//     + "　" + ais.officer.regulation.audit.chairman.president.category.management.qltGroup.groupMember[0].name;
+// }
+
+// // for文を使用して指定されたメンバー情報を生成する部分
+// let qltMemBox = document.querySelector(".qltMem");
+// for (let i = 1; i < ais.officer.regulation.audit.chairman.president.category.management.qltGroup.groupMember.length; i++) {
+//   let member = ais.officer.regulation.audit.chairman.president.category.management.qltGroup.groupMember[i];
+
+//   let qltCreate = document.createElement("input");
+//   qltCreate.setAttribute("type", "text");
+//   qltCreate.value = member.name + " " + member.position;
+
+//   qltMemBox.appendChild(qltCreate);
+// }
+
+// //スマートエナジーソリューション部
+// let sesGroup = document.getElementsByClassName("sesTop");
+// if (sesGroup.length > 0) {
+//   sesGroup[0].children[0].value =
+//     ais.officer.regulation.audit.chairman.president.category.management.sesGroup.groupName;
+//   sesGroup[0].children[1].value =
+//     ais.officer.regulation.audit.chairman.president.category.management.sesGroup.groupMember[0].position
+//     + "　" + ais.officer.regulation.audit.chairman.president.category.management.sesGroup.groupMember[0].name;
+// }
+
+// // for文を使用して指定されたメンバー情報を生成する部分
+// let sesMemBox = document.querySelector(".sesMem");
+// for (let i = 1; i < ais.officer.regulation.audit.chairman.president.category.management.sesGroup.groupMember.length; i++) {
+//   let member = ais.officer.regulation.audit.chairman.president.category.management.sesGroup.groupMember[i];
+
+//   let sesCreate = document.createElement("input");
+//   sesCreate.setAttribute("type", "text");
+//   sesCreate.value = member.name + " " + member.position;
+
+//   sesMemBox.appendChild(sesCreate);
+// }
 
 
 
