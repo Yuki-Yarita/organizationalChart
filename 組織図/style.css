@@ -1,0 +1,464 @@
+*{
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 95%;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+}
+
+header input {
+  text-align: right;
+}
+
+#date,
+.btn {
+  text-align: right;
+}
+
+#top div {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 0.1%;
+}
+
+#top .topBox {
+  border: 3px solid black;
+}
+
+#sh,
+#rglt,
+#presidt {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+main input {
+  width: 95%;
+  text-align: center;
+  border: none;
+  outline: none;
+}
+
+.president div,
+#adt,
+#presidt {
+  display: flex;
+  flex-direction: column;
+}
+
+#adt {
+  margin: 0 20% 0 60%;
+}
+
+#sh,
+#rglt,
+#adt,
+#presidt,
+#biz,
+#prez,
+#consult {
+  width: 13%;
+}
+
+#presidt, #presidt input,
+#prez, #prez input {
+  background-color: #f39c12;
+}
+
+#category {
+  display: flex;
+  margin-top: 1%;
+}
+
+.titleBox, .titleBox input {
+  background-color: #44abd9;
+}
+
+.readerGroup, .proxyGroup,
+.manageGroup {
+  border: 2px solid black;
+}
+
+.bgBox, .bgBox input,
+.eastBizTop, .eastBizTop input {
+  background-color: #f39c12;
+}
+
+.eastBizName {
+  border: 2px solid black;
+}
+
+.manageGroup, .manageGroup input,
+.readerGroup, .readerGroup input,
+.ictReaderGroup, .ictReaderGroup input {
+  background-color: #008d4c;
+}
+
+.proxyGroup,
+.proxyGroup input {
+  background-color: #00a65a;
+}
+
+.management {
+  width: 13%;
+}
+
+.development {
+  width: 48%;
+}
+
+.developGroup {
+  display: grid;
+  grid: 'a b c d' 'e f f g';
+}
+
+.devGroupBox:nth-child(6) {
+  grid-area: f;
+}
+
+.groupBox input,
+.eastBizMem input {
+  margin-left: 2.5%;
+  margin-right: auto;
+}
+
+.devGroupBox:nth-child(6) .sixthMem>input {
+  width: 47%;
+  margin-left: 1.5%;
+  margin-right: 1%;
+}
+
+.devGroupBox, .estContainer, .mngContainer,
+.mngGroup > div, .bizGroup > div, 
+.qltGroup > div, .sesGroup > div{
+  border: 1px solid black;
+}
+
+.sesGroup > div {
+  margin-bottom: -1px;
+}
+
+.ict {
+  width: 27%;
+}
+
+.ictReaderGroup {
+  padding: 9px;
+  border: 2px solid black;
+}
+
+.bgColorBox {
+  border: 1px solid black;
+}
+
+.ictGroup {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-content: start;
+  border: 1px solid black;
+}
+
+.ictGroupBox {
+  border: 1px solid black;
+}
+
+.ictGroupNew > div {
+  padding-bottom: 2%;
+}  
+
+.eastBusiness {
+  width: 12%;
+}  
+
+/* アコーディオンメニュー */
+.openGroup {
+  width: fit-content;
+  height: fit-content;
+  overflow: hidden;
+}
+
+.memSelect input:hover {
+  background-color: #77a1fc;
+  cursor: text;
+}
+
+/* 管理本部 */
+
+.manageName {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 10px;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+  background-color: #008d4c;
+}  
+
+.manageToggleBtn {
+  position: absolute;
+  right: 0;
+  width: 1rem;
+  height: 1rem;
+  cursor: pointer;
+}  
+
+.manageToggleBtn::before {
+  content: "";
+  position: absolute;
+  width: 70%;
+  height: 1px;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  background-color: black;
+  transition: .2s;
+}  
+
+.manageToggleBtn.active::before {
+  transform: translateX(-10px);
+  opacity: 0;
+}  
+
+.manageToggleBtn::after {
+  content: "";
+  position: absolute;
+  width: 70%;
+  height: 1px;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  background-color: black;
+  transform: rotate(90deg);
+  transition: .4s;
+}  
+
+.manageToggleBtn.manageToggleBtn.active::after {
+  transform: rotate(0deg);
+}  
+
+.manageContainer {
+  z-index: 1;
+  opacity: 0;
+  transition: .6s;
+}
+
+.manageContainer input {
+  cursor: pointer;
+}
+
+.manageContainer .memSelect:hover,
+.devGroupBox:hover {
+  background-color: #f39c12;
+}
+
+/* 開発本部 */
+.readerName {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 10px;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+  background-color: #008d4c;
+}  
+
+.toggleBtn {
+  position: absolute;
+  right: 0;
+  width: 1rem;
+  height: 1rem;
+  cursor: pointer;
+}  
+
+.toggleBtn::before {
+  content: "";
+  position: absolute;
+  width: 70%;
+  height: 1px;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  background-color: black;
+  transition: .2s;
+}  
+
+.toggleBtn.active::before {
+  transform: translateX(-10px);
+  opacity: 0;
+}  
+
+.toggleBtn::after {
+  content: "";
+  position: absolute;
+  width: 70%;
+  height: 1px;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  background-color: black;
+  transform: rotate(90deg);
+  transition: .4s;
+}  
+
+.toggleBtn.toggleBtn.active::after {
+  transform: rotate(0deg);
+}  
+
+.devContainer {
+  z-index: 1;
+  opacity: 0;
+  transition: .6s;
+}
+
+.devContainer input {
+  cursor: pointer;
+}
+
+.devContainer .memSelect:hover,
+.devGroupBox:hover {
+  background-color: #f39c12;
+}
+
+/* ICT本部 */
+.ictReaderName {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 10px;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+  background-color: #008d4c;
+}  
+
+.ictToggleBtn {
+  position: absolute;
+  right: 0;
+  width: 1rem;
+  height: 1rem;
+  cursor: pointer;
+}  
+
+.ictToggleBtn::before {
+  content: "";
+  position: absolute;
+  width: 70%;
+  height: 1px;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  background-color: black;
+  transition: .2s;
+}  
+
+.ictToggleBtn.active::before {
+  transform: translateX(-10px);
+  opacity: 0;
+}  
+
+.ictToggleBtn::after {
+  content: "";
+  position: absolute;
+  width: 70%;
+  height: 1px;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  background-color: black;
+  transform: rotate(90deg);
+  transition: .4s;
+}  
+
+.ictToggleBtn.ictToggleBtn.active::after {
+  transform: rotate(0deg);
+}  
+
+.ictContainer {
+  z-index: 1;
+  opacity: 0;
+  transition: .6s;
+}
+
+.ictContainer input {
+  cursor: pointer;
+}
+
+.ictContainer .memSelect:hover,
+.ictGroupBox:hover {
+  background-color: #f39c12;
+}
+
+/* 東北事業所 */
+.eastBizName {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 10px;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+  background-color: #f39c12;
+  cursor: pointer;
+}  
+
+.estToggleBtn {
+  position: absolute;
+  right: 0;
+  width: 1rem;
+  height: 1rem;
+  cursor: pointer;
+}  
+
+.estToggleBtn::before {
+  content: "";
+  position: absolute;
+  width: 70%;
+  height: 1px;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  background-color: black;
+  transition: .2s;
+}  
+
+.estToggleBtn.active::before {
+  transform: translateX(-10px);
+  opacity: 0;
+}  
+
+.estToggleBtn::after {
+  content: "";
+  position: absolute;
+  width: 70%;
+  height: 1px;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  background-color: black;
+  transform: rotate(90deg);
+  transition: .4s;
+}  
+
+.estToggleBtn.estToggleBtn.active::after {
+  transform: rotate(0deg);
+}  
+
+.estContainer {
+  z-index: 1;
+  opacity: 0;
+  transition: .6s;
+}
+
+.estContainer input {
+  cursor: pointer;
+}
+
+.estContainer .memSelect:hover,
+.estGroupBox:hover {
+  background-color: #f39c12;
+}
