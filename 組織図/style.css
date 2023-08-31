@@ -87,6 +87,11 @@ main input {
   background-color: #f39c12;
 }
 
+.mngName, .bizName,
+.qltName, .sesName {
+  border: 1px solid black;
+}
+
 .eastBizName {
   border: 2px solid black;
 }
@@ -131,16 +136,6 @@ main input {
   margin-right: 1%;
 }
 
-.devGroupBox, .estContainer, .mngContainer,
-.mngGroup > div, .bizGroup > div, 
-.qltGroup > div, .sesGroup > div{
-  border: 1px solid black;
-}
-
-.sesGroup > div {
-  margin-bottom: -1px;
-}
-
 .ict {
   width: 27%;
 }
@@ -158,11 +153,6 @@ main input {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   align-content: start;
-  border: 1px solid black;
-}
-
-.ictGroupBox {
-  border: 1px solid black;
 }
 
 .ictGroupNew > div {
@@ -174,20 +164,13 @@ main input {
 }  
 
 /* アコーディオンメニュー */
-.openGroup {
+.openGroup, .openMem {
   width: fit-content;
   height: fit-content;
   overflow: hidden;
 }
 
-.memSelect input:hover {
-  background-color: #77a1fc;
-  cursor: text;
-}
-
-/* 管理本部 */
-
-.manageName {
+.readerName, .manageName, .ictReaderName {
   display: flex;
   justify-content: center;
   width: 100%;
@@ -198,6 +181,33 @@ main input {
   background-color: #008d4c;
 }  
 
+.mngName, .bizName, .qltName,.sesName {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 10px;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+  background-color: #f39c12;
+}  
+
+.bgColorBox {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  align-items: center;
+  position: relative;
+  z-index: 5;
+  background-color: #44abd9;
+}
+
+.memSelect input:hover {
+  background-color: #ffe9d4;
+  cursor: text;
+}
+
+/* 管理本部 */
 .manageToggleBtn {
   position: absolute;
   right: 0;
@@ -250,24 +260,227 @@ main input {
   cursor: pointer;
 }
 
-.manageContainer .memSelect:hover,
-.devGroupBox:hover {
-  background-color: #f39c12;
+/* 経営支援室 */
+.mngToggleBtn {
+  position: absolute;
+  right: 0;
+  width: 1rem;
+  height: 1rem;
+  cursor: pointer;
+}  
+
+.mngToggleBtn::before {
+  content: "";
+  position: absolute;
+  width: 70%;
+  height: 1px;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  background-color: black;
+  transition: .2s;
+}  
+
+.mngToggleBtn.active::before {
+  transform: translateX(-10px);
+  opacity: 0;
+}  
+
+.mngToggleBtn::after {
+  content: "";
+  position: absolute;
+  width: 70%;
+  height: 1px;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  background-color: black;
+  transform: rotate(90deg);
+  transition: .4s;
+}  
+
+.mngToggleBtn.mngToggleBtn.active::after {
+  transform: rotate(0deg);
+}  
+
+.mngContainer {
+  z-index: 1;
+  opacity: 0;
+  transition: .6s;
+}
+
+.mngContainer input {
+  cursor: pointer;
+}
+
+/* 営業部 */
+.bizToggleBtn {
+  position: absolute;
+  right: 0;
+  width: 1rem;
+  height: 1rem;
+  cursor: pointer;
+}  
+
+.bizToggleBtn::before {
+  content: "";
+  position: absolute;
+  width: 70%;
+  height: 1px;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  background-color: black;
+  transition: .2s;
+}  
+
+.bizToggleBtn.active::before {
+  transform: translateX(-10px);
+  opacity: 0;
+}  
+
+.bizToggleBtn::after {
+  content: "";
+  position: absolute;
+  width: 70%;
+  height: 1px;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  background-color: black;
+  transform: rotate(90deg);
+  transition: .4s;
+}  
+
+.bizToggleBtn.bizToggleBtn.active::after {
+  transform: rotate(0deg);
+}  
+
+.bizContainer {
+  z-index: 1;
+  opacity: 0;
+  transition: .6s;
+}
+
+.bizContainer input {
+  cursor: pointer;
+}
+
+/* 品質管理部 */
+.qltToggleBtn {
+  position: absolute;
+  right: 0;
+  width: 1rem;
+  height: 1rem;
+  cursor: pointer;
+}  
+
+.qltToggleBtn::before {
+  content: "";
+  position: absolute;
+  width: 70%;
+  height: 1px;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  background-color: black;
+  transition: .2s;
+}  
+
+.qltToggleBtn.active::before {
+  transform: translateX(-10px);
+  opacity: 0;
+}  
+
+.qltToggleBtn::after {
+  content: "";
+  position: absolute;
+  width: 70%;
+  height: 1px;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  background-color: black;
+  transform: rotate(90deg);
+  transition: .4s;
+}  
+
+.qltToggleBtn.qltToggleBtn.active::after {
+  transform: rotate(0deg);
+}  
+
+.qltContainer {
+  z-index: 1;
+  opacity: 0;
+  transition: .6s;
+}
+
+.qltContainer input {
+  cursor: pointer;
+}
+
+/* スマートエナジーソリューション部 */
+.sesToggleBtn {
+  position: absolute;
+  right: 0;
+  width: 1rem;
+  height: 1rem;
+  cursor: pointer;
+}  
+
+.sesToggleBtn::before {
+  content: "";
+  position: absolute;
+  width: 70%;
+  height: 1px;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  background-color: black;
+  transition: .2s;
+}  
+
+.sesToggleBtn.active::before {
+  transform: translateX(-10px);
+  opacity: 0;
+}  
+
+.sesToggleBtn::after {
+  content: "";
+  position: absolute;
+  width: 70%;
+  height: 1px;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  background-color: black;
+  transform: rotate(90deg);
+  transition: .4s;
+}  
+
+.sesToggleBtn.sesToggleBtn.active::after {
+  transform: rotate(0deg);
+}  
+
+.sesContainer {
+  z-index: 1;
+  opacity: 0;
+  transition: .6s;
+}
+
+.sesContainer input {
+  cursor: pointer;
 }
 
 /* 開発本部 */
-.readerName {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  padding: 10px;
-  align-items: center;
-  position: relative;
-  z-index: 2;
-  background-color: #008d4c;
-}  
-
-.toggleBtn {
+.devGroupToggleBtn,
+.dev1ToggleBtn, 
+.dev2ToggleBtn, 
+.dev3ToggleBtn, 
+.dev4ToggleBtn, 
+.dev5ToggleBtn, 
+.dev6ToggleBtn, 
+.dev7ToggleBtn {
   position: absolute;
   right: 0;
   width: 1rem;
@@ -275,7 +488,14 @@ main input {
   cursor: pointer;
 }  
 
-.toggleBtn::before {
+.devGroupToggleBtn::before,
+.dev1ToggleBtn::before,
+.dev2ToggleBtn::before,
+.dev3ToggleBtn::before,
+.dev4ToggleBtn::before,
+.dev5ToggleBtn::before,
+.dev6ToggleBtn::before,
+.dev7ToggleBtn::before {
   content: "";
   position: absolute;
   width: 70%;
@@ -287,12 +507,26 @@ main input {
   transition: .2s;
 }  
 
-.toggleBtn.active::before {
+.devGroupToggleBtn.active::before,
+.dev1ToggleBtn.active::before,
+.dev2ToggleBtn.active::before,
+.dev3ToggleBtn.active::before,
+.dev4ToggleBtn.active::before,
+.dev5ToggleBtn.active::before,
+.dev6ToggleBtn.active::before,
+.dev7ToggleBtn.active::before {
   transform: translateX(-10px);
   opacity: 0;
 }  
 
-.toggleBtn::after {
+.devGroupToggleBtn::after,
+.dev1ToggleBtn::after,
+.dev2ToggleBtn::after,
+.dev3ToggleBtn::after,
+.dev4ToggleBtn::after,
+.dev5ToggleBtn::after,
+.dev6ToggleBtn::after,
+.dev7ToggleBtn::after {
   content: "";
   position: absolute;
   width: 70%;
@@ -302,41 +536,53 @@ main input {
   margin: auto;
   background-color: black;
   transform: rotate(90deg);
-  transition: .4s;
+  transition: .6s;
 }  
 
-.toggleBtn.toggleBtn.active::after {
+.devGroupToggleBtn.devGroupToggleBtn.active::after,
+.dev1ToggleBtn.dev1ToggleBtn.active::after,
+.dev2ToggleBtn.dev2ToggleBtn.active::after,
+.dev3ToggleBtn.dev3ToggleBtn.active::after,
+.dev4ToggleBtn.dev4ToggleBtn.active::after,
+.dev5ToggleBtn.dev5ToggleBtn.active::after,
+.dev6ToggleBtn.dev6ToggleBtn.active::after,
+.dev7ToggleBtn.dev7ToggleBtn.active::after {
   transform: rotate(0deg);
 }  
 
-.devContainer {
+.devGroupContainer,
+.dev1Container,
+.dev2Container,
+.dev3Container,
+.dev4Container,
+.dev5Container,
+.dev6Container,
+.dev7Container {
   z-index: 1;
   opacity: 0;
-  transition: .6s;
+  transition: .8s;
 }
 
-.devContainer input {
+.devGroupContainer input,
+.dev1Container input,
+.dev2Container input,
+.dev3Container input,
+.dev4Container input,
+.dev5Container input,
+.dev6Container input,
+.dev7Container input {
   cursor: pointer;
-}
-
-.devContainer .memSelect:hover,
-.devGroupBox:hover {
-  background-color: #f39c12;
 }
 
 /* ICT本部 */
-.ictReaderName {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  padding: 10px;
-  align-items: center;
-  position: relative;
-  z-index: 2;
-  background-color: #008d4c;
-}  
-
-.ictToggleBtn {
+.ictGroupToggleBtn,
+.ict1ToggleBtn,
+.ict2ToggleBtn,
+.ict3ToggleBtn,
+.ict4ToggleBtn,
+.ict5ToggleBtn,
+.ict6ToggleBtn,
+.ict7ToggleBtn {
   position: absolute;
   right: 0;
   width: 1rem;
@@ -344,7 +590,14 @@ main input {
   cursor: pointer;
 }  
 
-.ictToggleBtn::before {
+.ictGroupToggleBtn::before,
+.ict1ToggleBtn::before,
+.ict2ToggleBtn::before,
+.ict3ToggleBtn::before,
+.ict4ToggleBtn::before,
+.ict5ToggleBtn::before,
+.ict6ToggleBtn::before,
+.ict7ToggleBtn::before {
   content: "";
   position: absolute;
   width: 70%;
@@ -356,12 +609,26 @@ main input {
   transition: .2s;
 }  
 
-.ictToggleBtn.active::before {
+.ictGroupToggleBtn.active::before,
+.ict1ToggleBtn.active::before,
+.ict2ToggleBtn.active::before,
+.ict3ToggleBtn.active::before,
+.ict4ToggleBtn.active::before,
+.ict5ToggleBtn.active::before,
+.ict6ToggleBtn.active::before,
+.ict7ToggleBtn.active::before {
   transform: translateX(-10px);
   opacity: 0;
 }  
 
-.ictToggleBtn::after {
+.ictGroupToggleBtn::after,
+.ict1ToggleBtn::after,
+.ict2ToggleBtn::after,
+.ict3ToggleBtn::after,
+.ict4ToggleBtn::after,
+.ict5ToggleBtn::after,
+.ict6ToggleBtn::after,
+.ict7ToggleBtn::after {
   content: "";
   position: absolute;
   width: 70%;
@@ -374,23 +641,39 @@ main input {
   transition: .4s;
 }  
 
-.ictToggleBtn.ictToggleBtn.active::after {
+.ictGroupToggleBtn.ictGroupToggleBtn.active::after,
+.ict1ToggleBtn.ict1ToggleBtn.active::after,
+.ict2ToggleBtn.ict2ToggleBtn.active::after,
+.ict3ToggleBtn.ict3ToggleBtn.active::after,
+.ict4ToggleBtn.ict4ToggleBtn.active::after,
+.ict5ToggleBtn.ict5ToggleBtn.active::after,
+.ict6ToggleBtn.ict6ToggleBtn.active::after,
+.ict7ToggleBtn.ict7ToggleBtn.active::after {
   transform: rotate(0deg);
 }  
 
-.ictContainer {
+.ictGroupContainer,
+.ict1Container,
+.ict2Container,
+.ict3Container,
+.ict4Container,
+.ict5Container,
+.ict6Container,
+.ict7Container {
   z-index: 1;
   opacity: 0;
   transition: .6s;
 }
 
-.ictContainer input {
+.ictGroupContainer input,
+.ict1Container input,
+.ict2Container input,
+.ict3Container input,
+.ict4Container input,
+.ict5Container input,
+.ict6Container input,
+.ict7Container input {
   cursor: pointer;
-}
-
-.ictContainer .memSelect:hover,
-.ictGroupBox:hover {
-  background-color: #f39c12;
 }
 
 /* 東北事業所 */
@@ -456,9 +739,4 @@ main input {
 
 .estContainer input {
   cursor: pointer;
-}
-
-.estContainer .memSelect:hover,
-.estGroupBox:hover {
-  background-color: #f39c12;
 }

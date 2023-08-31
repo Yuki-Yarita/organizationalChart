@@ -99,16 +99,6 @@ let ais = {
                         { name: "高 董協", position: "社員" },
                         { name: "鄭 在氾", position: "社員" },
                         { name: "洪 容澤", position: "社員" },
-                        { name: "洪 容澤", position: "社員" },
-                        { name: "洪 容澤", position: "社員" },
-                        { name: "洪 容澤", position: "社員" },
-                        { name: "洪 容澤", position: "社員" },
-                        { name: "洪 容澤", position: "社員" },
-                        { name: "洪 容澤", position: "社員" },
-                        { name: "洪 容澤", position: "社員" },
-                        { name: "洪 容澤", position: "社員" },
-                        { name: "洪 容澤", position: "社員" },
-                        { name: "洪 容澤", position: "社員" },
                         { name: "崔 榕峻", position: "社員" },
                         { name: "南 正真", position: "社員" },
                         { name: "鄭 在玹", position: "社員" },
@@ -556,22 +546,90 @@ function eastBizGroupMembers(containerClass, group) {
 // 部署ごとの情報をまとめたオブジェクトの配列
 const accordion = [
   {//管理本部
-    indexSelector: ".mngIndex",
     toggleBtnSelector: ".manageToggleBtn",
     containerSelector: ".manageContainer"
   },
+  {
+    toggleBtnSelector: ".mngToggleBtn",
+    containerSelector: ".mngContainer"
+  },
+  {
+    toggleBtnSelector: ".bizToggleBtn",
+    containerSelector: ".bizContainer"
+  },
+  {
+    toggleBtnSelector: ".qltToggleBtn",
+    containerSelector: ".qltContainer"
+  },
+  {
+    toggleBtnSelector: ".sesToggleBtn",
+    containerSelector: ".sesContainer"
+  },
   {//開発本部
-    indexSelector: ".devIndex",
-    toggleBtnSelector: ".toggleBtn",
-    containerSelector: ".devContainer"
+    toggleBtnSelector: ".devGroupToggleBtn",
+    containerSelector: ".devGroupContainer"
+  },
+  {
+    toggleBtnSelector: ".dev1ToggleBtn",
+    containerSelector: ".dev1Container"
+  },
+  {
+    toggleBtnSelector: ".dev2ToggleBtn",
+    containerSelector: ".dev2Container"
+  },
+  {
+    toggleBtnSelector: ".dev3ToggleBtn",
+    containerSelector: ".dev3Container"
+  },
+  {
+    toggleBtnSelector: ".dev4ToggleBtn",
+    containerSelector: ".dev4Container"
+  },
+  {
+    toggleBtnSelector: ".dev5ToggleBtn",
+    containerSelector: ".dev5Container"
+  },
+  {
+    toggleBtnSelector: ".dev6ToggleBtn",
+    containerSelector: ".dev6Container"
+  },
+  {
+    toggleBtnSelector: ".dev7ToggleBtn",
+    containerSelector: ".dev7Container"
   },
   {//ICT本部
-    indexSelector: ".ictIndex",
-    toggleBtnSelector: ".ictToggleBtn",
-    containerSelector: ".ictContainer"
+    toggleBtnSelector: ".ictGroupToggleBtn",
+    containerSelector: ".ictGroupContainer"
+  },
+  {
+    toggleBtnSelector: ".ict1ToggleBtn",
+    containerSelector: ".ict1Container"
+  },
+  {
+    toggleBtnSelector: ".ict2ToggleBtn",
+    containerSelector: ".ict2Container"
+  },
+  {
+    toggleBtnSelector: ".ict3ToggleBtn",
+    containerSelector: ".ict3Container"
+  },
+  {
+    toggleBtnSelector: ".ict4ToggleBtn",
+    containerSelector: ".ict4Container"
+  },
+  {
+    toggleBtnSelector: ".ict5ToggleBtn",
+    containerSelector: ".ict5Container"
+  },
+  {
+    toggleBtnSelector: ".ict6ToggleBtn",
+    containerSelector: ".ict6Container"
+  },
+  {
+    toggleBtnSelector: ".ict7ToggleBtn",
+    containerSelector: ".ict7Container"
   },
   {//東北事業所
-    indexSelector: ".estIndex",
     toggleBtnSelector: ".estToggleBtn",
     containerSelector: ".estContainer"
   }
