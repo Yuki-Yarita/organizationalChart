@@ -549,7 +549,45 @@ const accordion = [
     toggleBtnSelector: ".manageToggleBtn",
     containerSelector: ".manageContainer"
   },
-  {
+  {//開発本部
+    toggleBtnSelector: ".devGroupToggleBtn",
+    containerSelector: ".devGroupContainer"
+  },
+  {//ICT本部
+    toggleBtnSelector: ".ictGroupToggleBtn",
+    containerSelector: ".ictGroupContainer"
+  },
+  {//東北事業所
+    toggleBtnSelector: ".estToggleBtn",
+    containerSelector: ".estContainer"
+  }
+];
+
+// 各部署ごとに処理を実行
+accordion.forEach(accordion => {
+  const toggleBtn = document.querySelector(accordion.toggleBtnSelector);
+  const container = document.querySelector(accordion.containerSelector);
+  const containerHeight = container.clientHeight;
+  container.style.transform = `translateY(-${containerHeight + 1}px)`;
+
+  toggleBtn.addEventListener("click", () => {
+    toggleBtn.classList.toggle("active");
+    container.style.opacity = 1;
+    
+
+    if (!container.classList.contains("active")) {
+      container.classList.add("active");
+      container.style.transform = "translateY(0)";
+    } else {
+      container.classList.remove("active");
+      container.style.transform = `translateY(-${containerHeight + 1}px)`;
+    }
+  });
+});
+
+// 部署ごとの情報をまとめたオブジェクトの配列
+const accordionChild = [
+  {//管理本部
     toggleBtnSelector: ".mngToggleBtn",
     containerSelector: ".mngContainer"
   },
@@ -566,10 +604,6 @@ const accordion = [
     containerSelector: ".sesContainer"
   },
   {//開発本部
-    toggleBtnSelector: ".devGroupToggleBtn",
-    containerSelector: ".devGroupContainer"
-  },
-  {
     toggleBtnSelector: ".dev1ToggleBtn",
     containerSelector: ".dev1Container"
   },
@@ -598,10 +632,6 @@ const accordion = [
     containerSelector: ".dev7Container"
   },
   {//ICT本部
-    toggleBtnSelector: ".ictGroupToggleBtn",
-    containerSelector: ".ictGroupContainer"
-  },
-  {
     toggleBtnSelector: ".ict1ToggleBtn",
     containerSelector: ".ict1Container"
   },
@@ -628,30 +658,57 @@ const accordion = [
   {
     toggleBtnSelector: ".ict7ToggleBtn",
     containerSelector: ".ict7Container"
-  },
-  {//東北事業所
-    toggleBtnSelector: ".estToggleBtn",
-    containerSelector: ".estContainer"
   }
 ];
 
-// 各部署ごとに処理を実行
-accordion.forEach(accordion => {
-  const toggleBtn = document.querySelector(accordion.toggleBtnSelector);
-  const container = document.querySelector(accordion.containerSelector);
-  const containerHeight = container.clientHeight;
-  container.style.transform = `translateY(-${containerHeight + 1}px)`;
 
-  toggleBtn.addEventListener("click", () => {
-    toggleBtn.classList.toggle("active");
-    container.style.opacity = 1;
-
-    if (!container.classList.contains("active")) {
-      container.classList.add("active");
-      container.style.transform = "translateY(0)";
+// 各グループごとに処理を実行
+accordionChild.forEach(accordionChild => {
+  const toggleBtnChild = document.querySelector(accordionChild.toggleBtnSelector);
+  const containerChild = document.querySelector(accordionChild.containerSelector);
+  const containerHeight = containerChild.clientHeight;
+  containerChild.style.transform = `translateY(-${containerHeight + 1}px)`;
+  containerChild.style.display = "none";
+  
+  toggleBtnChild.addEventListener("click", () => {
+    toggleBtnChild.classList.toggle("active");
+    containerChild.style.opacity = 1;
+    
+    if (!containerChild.classList.contains("active")) {
+      containerChild.classList.add("active");
+      containerChild.style.transform = "translateY(0)";
+      containerChild.style.display = "block";
     } else {
-      container.classList.remove("active");
-      container.style.transform = `translateY(-${containerHeight + 1}px)`;
+      containerChild.classList.remove("active");
+      containerChild.style.transform = `translateY(-${containerHeight + 1}px)`;
+      containerChild.style.display = "none";
     }
   });
+});
+
+//ドラッグ＆ドロップ
+document.querySelectorAll('input').forEach(element =>{
+  element.ondragstart = function(event) {
+    event.dataTransfer.setData('text/plain', event.target.outerHTML);
+  };
+  element.ondragover = function (event) {
+    event.preventDefault();
+    this.style.borderTop = '1px solid blue';
+  };
+  element.ondragleave = function (event) {
+    this.style.borderTop = '';
+  };
+  element.ondrop = function (event) {
+    event.preventDefault();
+    let id = event.dataTransfer.getData('text/plain');
+    let newInput = document.createElement('input');
+    newInput.value = ('type', 'text');
+    // newInput.value = element_drag.value;
+
+    this.parentNode.insertBefore(newInput, this);
+
+    element_drag.remove();
+
+    this.style.borderTop = '';
+  };
 });

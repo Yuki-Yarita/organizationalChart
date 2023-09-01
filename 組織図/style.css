@@ -115,13 +115,19 @@ main input {
   width: 48%;
 }
 
+.development .developGroup {
+  border: 1px solid black;
+}
+
 .developGroup {
   display: grid;
   grid: 'a b c d' 'e f f g';
+  height: 100%;
 }
 
 .devGroupBox:nth-child(6) {
   grid-area: f;
+  width: 100%;
 }
 
 .groupBox input,
@@ -147,16 +153,13 @@ main input {
 
 .bgColorBox {
   border: 1px solid black;
+  height: 20%;
 }
 
 .ictGroup {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   align-content: start;
-}
-
-.ictGroupNew > div {
-  padding-bottom: 2%;
 }  
 
 .eastBusiness {
@@ -164,7 +167,7 @@ main input {
 }  
 
 /* アコーディオンメニュー */
-.openGroup, .openMem {
+.openGroup, .groupBox {
   width: fit-content;
   height: fit-content;
   overflow: hidden;
@@ -200,6 +203,10 @@ main input {
   position: relative;
   z-index: 5;
   background-color: #44abd9;
+}
+
+.memSelect {
+  height: 80%;
 }
 
 .memSelect input:hover {
@@ -261,6 +268,7 @@ main input {
 }
 
 /* 経営支援室 */
+
 .mngToggleBtn {
   position: absolute;
   right: 0;
