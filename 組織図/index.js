@@ -198,6 +198,7 @@ let ais = {
                       groupName: "特定顧客グループ",
                       groupMember: [
                         { name: "裵 城準", position: "次長" },
+                        { name: "裵 一禹", position: "部長" },
                         { name: "金 徳用", position: "部長" },
                         { name: "林 承培", position: "部長" },
                         { name: "姜 現卓", position: "部長" },
@@ -207,7 +208,6 @@ let ais = {
                         { name: "河島 彰彦", position: "部長" },
                         { name: "宋 容順", position: "課長" },
                         { name: "趙 洒姈", position: "主任" },
-                        { name: "李 鍾勳", position: "社員" },
                         { name: "姜 尚助", position: "社員" },
                         { name: "石 在原", position: "社員" },
                         { name: "金 炫国", position: "代理" },
@@ -261,7 +261,6 @@ let ais = {
                       { name: "盧 柱延", position: "主任" },
                       { name: "崔 湖鐘", position: "社員" },
                       { name: "劉 東旭", position: "社員" },
-                      { name: "崔 光林", position: "社員" },
                       { name: "宋 在憲", position: "社員" },
                       { name: "宋 志鏞", position: "社員" }
                     ]
@@ -277,7 +276,8 @@ let ais = {
                       { name: "朴 婉呈", position: "主任" },
                       { name: "黄 奕振", position: "主任" },
                       { name: "林 太利", position: "主任" },
-                      { name: "崔 範宇", position: "社員" }
+                      { name: "崔 範宇", position: "社員" },
+                      { name: "張 慶俊", position: "代理" }
                     ]
                   },
                   group4: {
@@ -687,28 +687,77 @@ accordionChild.forEach(accordionChild => {
 });
 
 //ドラッグ＆ドロップ
-document.querySelectorAll('input').forEach(element =>{
-  element.ondragstart = function(event) {
-    event.dataTransfer.setData('text/plain', event.target.outerHTML);
-  };
-  element.ondragover = function (event) {
-    event.preventDefault();
-    this.style.borderTop = '1px solid blue';
-  };
-  element.ondragleave = function (event) {
-    this.style.borderTop = '';
-  };
-  element.ondrop = function (event) {
-    event.preventDefault();
-    let id = event.dataTransfer.getData('text/plain');
-    let newInput = document.createElement('input');
-    newInput.value = ('type', 'text');
-    // newInput.value = element_drag.value;
+//inputの要素を全て取得
+const dragInput = document.querySelectorAll('input[type="text"]');
 
-    this.parentNode.insertBefore(newInput, this);
+let draggedItem = null;
 
-    element_drag.remove();
+dragInput.forEach(input => {
+  input.draggable = true;
 
-    this.style.borderTop = '';
-  };
+  input.addEventListener('dragstart', () => {
+    draggedItem = input;
+    setTimeout(() => {
+      input.style.display = 'none';
+    });
+  });
+
+  input.addEventListener('dragend', () => {
+    setTimeout(() => {
+      draggedItem.style.display = 'block';
+      draggedItem = null;
+    });
+  });
+
+  input.addEventListener('dragover', moveInput => {
+    moveInput.preventDefault();
+  });
+
+  input.addEventListener('dragenter', moveInput => {
+    moveInput.preventDefault();
+    if(draggedItem !== null && input !== draggedItem) {
+      input.parentNode.insertBefore(draggedItem, input);
+    }
+  });
 });
+
+
+
+
+function countUniqueNames(obj, namesToExclude) {
+  let count = 0;
+  const countedNames = {}; // 重複をチェックするためのオブジェクト
+
+  function traverse(obj) {
+    if (typeof obj === 'object') {
+      if (Array.isArray(obj)) {
+        obj.forEach((item) => traverse(item));
+      } else {
+        for (const key in obj) {
+          if (obj.hasOwnProperty(key)) {
+            if (key === 'name' && !namesToExclude.includes(obj[key])) {
+              const name = obj[key];
+              if (!countedNames[name]) {
+                countedNames[name] = true; // まだカウントされていない名前の場合、カウント
+                count++;
+              }
+            }
+            traverse(obj[key]);
+          }
+        }
+      }
+    }
+  }
+
+  traverse(obj);
+  return count;
+}
+
+// 数えない名前のリスト
+const namesToExclude = ['鄭 昌株', '趙 元章', '東山 龍二', '田中 耕一郎', '猪狩 正', '金 允泳'];
+
+// officer内のオブジェクトを数える
+const count = countUniqueNames(ais.officer, namesToExclude);
+
+// HTMLのinput要素に結果を出力
+document.querySelector('#sain').value = count;

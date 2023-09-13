@@ -115,7 +115,10 @@ main input {
   width: 48%;
 }
 
-.development .developGroup {
+.manageContainer .memSelect,
+.devGroupBox,
+.ictGroupBox,
+.eastBizMem {
   border: 1px solid black;
 }
 
@@ -130,16 +133,9 @@ main input {
   width: 100%;
 }
 
-.groupBox input,
-.eastBizMem input {
-  margin-left: 2.5%;
-  margin-right: auto;
-}
-
 .devGroupBox:nth-child(6) .sixthMem>input {
   width: 47%;
   margin-left: 1.5%;
-  margin-right: 1%;
 }
 
 .ict {
@@ -153,7 +149,6 @@ main input {
 
 .bgColorBox {
   border: 1px solid black;
-  height: 20%;
 }
 
 .ictGroup {
@@ -205,8 +200,12 @@ main input {
   background-color: #44abd9;
 }
 
-.memSelect {
-  height: 80%;
+.devGroupBox .memSelect {
+  min-height: 300px;
+}
+
+.ictGroupBox .memSelect {
+  min-height: 150px;
 }
 
 .memSelect input:hover {
