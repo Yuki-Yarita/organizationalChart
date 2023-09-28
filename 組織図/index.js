@@ -1,4 +1,3 @@
-
 //日付オブジェクトを作成
 let date7 = new Date();
 //日付オブジェクトから「年」を取得
@@ -16,12 +15,12 @@ ad.innerHTML = "株式会社 亜細亜情報システム 組織図（" + year + 
 let today = document.getElementById("date");
 today.innerHTML = year + "/" + month + "/" + day + "　現在";
 
-function total(){
+function total() {
   let bucho = document.getElementById("bucho");
   let sain = document.getElementById("sain");
   let total = document.getElementById("total");
 
-  total.value =  parseInt(bucho.value)+parseInt(sain.value);
+  total.value = parseInt(bucho.value) + parseInt(sain.value);
 }
 
 let ais = {
@@ -524,7 +523,7 @@ for (const groupInfo of groups4) {
   const container = document.querySelector(selector);
   container.querySelector("input:nth-child(1)").value = group.groupName;
   container.querySelector("input:nth-child(2)").value =
-  group.groupMember[0].position + " - " + group.groupMember[0].name;
+    group.groupMember[0].position + " - " + group.groupMember[0].name;
 }
 
 eastBizGroupMembers(".eastBizMem", eastBiz.group);
@@ -573,7 +572,7 @@ accordion.forEach(accordion => {
   toggleBtn.addEventListener("click", () => {
     toggleBtn.classList.toggle("active");
     container.style.opacity = 1;
-    
+
 
     if (!container.classList.contains("active")) {
       container.classList.add("active");
@@ -667,13 +666,13 @@ accordionChild.forEach(accordionChild => {
   const toggleBtnChild = document.querySelector(accordionChild.toggleBtnSelector);
   const containerChild = document.querySelector(accordionChild.containerSelector);
   const containerHeight = containerChild.clientHeight;
-  containerChild.style.transform = `translateY(-${containerHeight + 1}px)`;
   containerChild.style.display = "none";
-  
+  containerChild.style.transform = `translateY(-${containerHeight + 1}px)`;
+
   toggleBtnChild.addEventListener("click", () => {
     toggleBtnChild.classList.toggle("active");
     containerChild.style.opacity = 1;
-    
+
     if (!containerChild.classList.contains("active")) {
       containerChild.classList.add("active");
       containerChild.style.transform = "translateY(0)";
@@ -682,6 +681,57 @@ accordionChild.forEach(accordionChild => {
       containerChild.classList.remove("active");
       containerChild.style.transform = `translateY(-${containerHeight + 1}px)`;
       containerChild.style.display = "none";
+    }
+  });
+});
+
+//全てのメンバーを一度に表示
+const aisAllOpen = [
+  //管理本部
+  {containerSelector: ".manageContainer"},
+  {containerSelector: ".mngContainer"},
+  {containerSelector: ".bizContainer"},
+  {containerSelector: ".qltContainer"},
+  {containerSelector: ".sesContainer"},
+  //開発本部
+  {containerSelector: ".devGroupContainer"},
+  {containerSelector: ".dev1Container"},
+  {containerSelector: ".dev2Container"},
+  {containerSelector: ".dev3Container"},
+  {containerSelector: ".dev4Container"},
+  {containerSelector: ".dev5Container"},
+  {containerSelector: ".dev6Container"},
+  {containerSelector: ".dev7Container"},
+  //ICT本部
+  {containerSelector: ".ictGroupContainer"},
+  {containerSelector: ".ict1Container"},
+  {containerSelector: ".ict2Container"},
+  {containerSelector: ".ict3Container"},
+  {containerSelector: ".ict4Container"},
+  {containerSelector: ".ict5Container"},
+  {containerSelector: ".ict6Container"},
+  {containerSelector: ".ict7Container"}
+];
+
+const aisAllOpenBtn = document.getElementById("aisAllToggleBtn");
+
+aisAllOpen.forEach(aisAllOpen => {
+  const aisAllContainer = document.querySelector(aisAllOpen.containerSelector);
+  const containerHeight = aisAllContainer.clientHeight;
+  aisAllContainer.style.transform = `translateY(-${containerHeight + 1}px)`;
+
+  aisAllOpenBtn.addEventListener("click", () => {
+    aisAllOpenBtn.classList.toggle("active");
+    aisAllContainer.style.opacity = 1;
+
+    if (!aisAllContainer.classList.contains("active")) {
+      aisAllContainer.classList.add("active");
+      aisAllContainer.style.transform = "translateY(0)";
+      aisAllOpenBtn.textContent = "全体非表示";
+    }else {
+      aisAllContainer.classList.remove("active");
+      aisAllContainer.style.transform = `translateY(-${containerHeight + 1}px)`;
+      aisAllOpenBtn.textContent = "全体表示";
     }
   });
 });
@@ -715,7 +765,7 @@ dragInput.forEach(input => {
 
   input.addEventListener('dragenter', moveInput => {
     moveInput.preventDefault();
-    if(draggedItem !== null && input !== draggedItem) {
+    if (draggedItem !== null && input !== draggedItem) {
       input.parentNode.insertBefore(draggedItem, input);
     }
   });
@@ -761,3 +811,77 @@ const count = countUniqueNames(ais.officer, namesToExclude);
 
 // HTMLのinput要素に結果を出力
 document.querySelector('#sain').value = count;
+
+// テキスト情報をHTMLに挿入-----仮-----
+document.getElementById("bucho").value = 4;
+
+//Aisメンバーの合計人数
+document.getElementById("total").value = count + 4;
+
+//検索欄
+//元のセレクト
+const aisDivisionList = document.getElementById("aisDivisionList");
+
+//部署に対しての関連セレクト
+const aisManageList = document.getElementById("aisManageList");
+
+const aisAllDivision = 
+["allGroup", "mngSupportGroup", "salesGroup", "qualityMngGroup", "sesGroup",
+"devGroup1", "devGroup2", "devGroup3", "devGroup4", "resEduGroup", "speCusGroup", "certiQualGroup",
+"ictGroup1", "ictGroup2", "ictGroup3", "ictGroup4", "ictGroup5", "newEmplGroup", "supProGroup",
+"tohokuGroup"]
+const aisManagement =
+["allGroup", "mngSupportGroup", "salesGroup", "qualityMngGroup", "sesGroup"]
+const aisDevelopment =
+["devGroup1", "devGroup2", "devGroup3", "devGroup4", "resEduGroup", "speCusGroup", "certiQualGroup"]
+const aisIct =
+["ictGroup1", "ictGroup2", "ictGroup3", "ictGroup4", "ictGroup5", "newEmplGroup","supProGroup"]
+const aisTohoku =
+["tohokuGroup"]
+
+// aisDivisionListが変更されたときのイベントリスナーを追加
+aisDivisionList.addEventListener("change", () => {
+  // 選択されたオプションの値を取得
+  const selectedOption = aisDivisionList.value;
+
+  // 関連するセレクト要素の全てのオプションを非表示にする
+  for (const option of aisManageList.options) {
+    option.style.display = "none";
+  }
+
+  // 選択されたオプションに応じて関連するオプションを表示
+  let optionsToShow = [];
+
+  switch (selectedOption) {
+    case "aisAll":
+      optionsToShow = aisAllDivision;
+      break;
+    case "management":
+      optionsToShow = aisManagement;
+      break;
+    case "development":
+      optionsToShow = aisDevelopment;
+      break;
+    case "ict":
+      optionsToShow = aisIct;
+      break;
+    case "tohoku":
+      optionsToShow = aisTohoku;
+      break;
+    default:
+      break;
+  }
+
+  for (const optionValue of optionsToShow) {
+    aisManageList.querySelector(`option[value='${optionValue}']`).style.display = "block";
+  }
+
+  // 関連するセレクト要素の表示を更新
+  aisManageList.style.display = optionsToShow.length > 0 ? "block" : "none";
+});
+
+// ページ読み込み時に初期状態を設定
+aisDivisionList.dispatchEvent(new Event("change"));
+
+
+

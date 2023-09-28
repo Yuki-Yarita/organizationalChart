@@ -1,7 +1,140 @@
-*{
+* {
   padding: 0;
   box-sizing: border-box;
   font-size: 95%;
+  color: #262626;
+  font-weight: bold;
+}
+
+#wstCalendar {
+  font-size: 25px !important;
+  background-color: rgb(219, 219, 219);
+  border-top: 5px solid #FF3300;
+  border-bottom: 5px solid #FF3300;
+}
+
+.suvTtl {
+  background-color: rgb(219, 219, 219);
+  border-radius: 5px;
+  font-size: 12px;
+}
+
+#date {
+  margin-right: 35%;
+  color: #0034b8;
+  font-size: 15px;
+  margin-top: 5px;
+  margin-bottom: 7px;
+  right: 0;
+}
+
+#subMenuTitle {
+  position: absolute;
+  top: 5%;
+  left: 40%;
+}
+
+.menutitleList {
+  position: relative;
+  display: flex;
+}
+
+#aisAllToggleBtn {
+  cursor: pointer;
+  background-color: #54d4ff;
+  border: none;
+  border-radius: 5px;
+  font-size: 50%;
+  width: 75px;
+  height: 35px;
+  border-bottom: 5px solid #333;
+  transition: transform .2s;
+
+  &:active {
+    transform: scale(.99);
+    margin-top: 0.2%;
+    border-bottom: 1px solid #333;
+  }
+}
+
+#aisDivisionList {
+  margin-left: 5px;
+  border: 3px solid #54d4ff;
+  border-radius: 5px;
+  font-size: 100%;
+  text-align: center;
+  width: 125px;
+  height: 35px;
+  cursor: pointer;
+}
+
+#aisManageList {
+  margin-left: 5px;
+  border: 3px solid #54d4ff;
+  border-radius: 5px;
+  font-size: 100%;
+  text-align: center;
+  width: 235px;
+  height: 35px;
+  cursor: pointer;
+  overflow: scroll;
+}
+
+.searchBtn {
+  margin-left: 5px;
+  box-sizing: border-box;
+  position: relative;
+  border: 3px solid #54d4ff;
+  padding: 3px 10px;
+  border-radius: 5px;
+  height: 35px;
+  width: 150px;
+  overflow: hidden;
+}
+
+.searchBtn input[type="text"] {
+  border: none;
+  height: 25px;
+  width: 85px;
+}
+
+.searchBtn input[type="text"]:focus {
+  outline: 0;
+}
+
+.searchBtn input[type="submit"] {
+  cursor: pointer;
+  font-family: FontAwesome;
+  border: none;
+  background-color: #3879D9;
+  color: #fff;
+  position: absolute;
+  width: 33px;
+  height: 35px;
+  right: 0px;
+  top: -3px;
+  outline: none;
+}
+
+#aisAllEditBtn {
+  position: absolute;
+  top:12%;
+  left: 1%;
+  cursor: pointer;
+  background-color: #dedede;
+  border: none;
+  border-radius: 5px;
+  font-size: 50%;
+  width: 75px;
+  height: 35px;
+  border-bottom: 5px solid #333;
+  transition: transform .2s;
+
+  &:active {
+    transform: scale(.99);
+    margin-top: 0.2%;
+    border-bottom: 1px solid #333;
+  }
 }
 
 header {
@@ -9,8 +142,10 @@ header {
   justify-content: space-between;
 }
 
-header input {
+.suvTtl input {
+  margin-right: 5px;
   text-align: right;
+  border-radius: 5px !important;
 }
 
 #date,
@@ -18,28 +153,80 @@ header input {
   text-align: right;
 }
 
+main {
+  margin-top: 5%;
+}
+
 #top div {
+  margin-top: 0.3%;
+}
+
+.president {
   display: flex;
-  justify-content: space-around;
-  margin-top: 0.1%;
+  justify-content: center;
+}
+
+.president div {
+  margin: 0 5%;
 }
 
 #top .topBox {
-  border: 3px solid black;
+  border: 3px solid #FF3300;
+  border-radius: 10px;
+  padding: 5px 10px;
+  height: 100%;
+  background-color: #ffe3bd;
 }
 
 #sh,
 #rglt,
-#presidt {
+#presidt,
+#adt,
+.president div input {
   margin-right: auto;
   margin-left: auto;
 }
 
+div:has(>input) {
+  text-align: center;
+}
+
+#top input,
+.manageName,
+.manageName input,
+.readerName,
+.readerName input,
+.proxyName,
+.proxyName input,
+.ictReaderGroup,
+.ictReaderName input,
+.eastBizName,
+.eastBizName input {
+  background-color: #ffe3bd;
+  border-radius: 8px;
+}
+
+.mngName,
+.mngName input,
+.bizName,
+.bizName input,
+.qltName,
+.qltName input,
+.sesName,
+.sesName input,
+.bgColorBox,
+.bgColorBox input {
+  background-color: rgb(190, 230, 249);
+  border-radius: 8px;
+}
+
 main input {
   width: 95%;
+  box-sizing: border-box;
   text-align: center;
   border: none;
   outline: none;
+  border-radius: 15px;
 }
 
 .president div,
@@ -63,48 +250,22 @@ main input {
   width: 13%;
 }
 
-#presidt, #presidt input,
-#prez, #prez input {
-  background-color: #f39c12;
-}
-
 #category {
   display: flex;
-  margin-top: 1%;
+  margin: 1% 5px 0;
 }
 
-.titleBox, .titleBox input {
-  background-color: #44abd9;
-}
-
-.readerGroup, .proxyGroup,
-.manageGroup {
-  border: 2px solid black;
-}
-
-.bgBox, .bgBox input,
-.eastBizTop, .eastBizTop input {
-  background-color: #f39c12;
-}
-
-.mngName, .bizName,
-.qltName, .sesName {
-  border: 1px solid black;
-}
-
-.eastBizName {
-  border: 2px solid black;
-}
-
-.manageGroup, .manageGroup input,
-.readerGroup, .readerGroup input,
-.ictReaderGroup, .ictReaderGroup input {
-  background-color: #008d4c;
-}
-
+.readerGroup,
 .proxyGroup,
-.proxyGroup input {
-  background-color: #00a65a;
+.manageGroup,
+.manageContainer>.groupBox>div,
+.devGroupBox>div,
+.ictReaderGroup,
+.ictGroupBox div:has(>input),
+.eastBizName,
+.eastBizMem {
+  border: 3px solid #FF3300;
+  border-radius: 10px;
 }
 
 .management {
@@ -113,23 +274,35 @@ main input {
 
 .development {
   width: 48%;
+  margin: 0 10px;
 }
 
-.manageContainer .memSelect,
-.devGroupBox,
-.ictGroupBox,
-.eastBizMem {
-  border: 1px solid black;
+.readerGroup input,
+.proxyGroup .proxyGroup input,
+.ictReaderGroup input,
+.eastBizName input {
+  font-size: 0.8vw;
 }
 
 .developGroup {
-  display: grid;
-  grid: 'a b c d' 'e f f g';
   height: 100%;
+  display: grid;
+  grid: "a b c d" "e f f g";
+  grid-template-columns: 1fr 2fr 1fr;
 }
 
-.devGroupBox:nth-child(6) {
-  grid-area: f;
+.devCenterBox .groupBox:nth-child(1) {
+  float: left;
+  width: 50%;
+}
+
+.devCenterBox .groupBox:nth-child(2) {
+  float: left;
+  width: 50%;
+}
+
+.devCenterBox .groupBox:nth-child(3) {
+  clear: both;
   width: 100%;
 }
 
@@ -140,35 +313,33 @@ main input {
 
 .ict {
   width: 27%;
+  margin-right: 10px;
 }
 
 .ictReaderGroup {
   padding: 9px;
-  border: 2px solid black;
-}
-
-.bgColorBox {
-  border: 1px solid black;
 }
 
 .ictGroup {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 1fr 1fr;
   align-content: start;
-}  
+}
 
 .eastBusiness {
   width: 12%;
-}  
+}
 
 /* アコーディオンメニュー */
-.openGroup, .groupBox {
-  width: fit-content;
+.openGroup,
+.groupBox {
   height: fit-content;
   overflow: hidden;
 }
 
-.readerName, .manageName, .ictReaderName {
+.readerName,
+.manageName,
+.ictReaderName {
   display: flex;
   justify-content: center;
   width: 100%;
@@ -176,10 +347,12 @@ main input {
   align-items: center;
   position: relative;
   z-index: 2;
-  background-color: #008d4c;
-}  
+}
 
-.mngName, .bizName, .qltName,.sesName {
+.mngName,
+.bizName,
+.qltName,
+.sesName {
   display: flex;
   justify-content: center;
   width: 100%;
@@ -187,8 +360,7 @@ main input {
   align-items: center;
   position: relative;
   z-index: 2;
-  background-color: #f39c12;
-}  
+}
 
 .bgColorBox {
   display: flex;
@@ -197,7 +369,6 @@ main input {
   align-items: center;
   position: relative;
   z-index: 5;
-  background-color: #44abd9;
 }
 
 .devGroupBox .memSelect {
@@ -209,8 +380,8 @@ main input {
 }
 
 .memSelect input:hover {
-  background-color: #ffe9d4;
-  cursor: text;
+  background-color: #caf3ff;
+  cursor: pointer;
 }
 
 /* 管理本部 */
@@ -220,7 +391,7 @@ main input {
   width: 1rem;
   height: 1rem;
   cursor: pointer;
-}  
+}
 
 .manageToggleBtn::before {
   content: "";
@@ -232,12 +403,12 @@ main input {
   margin: auto;
   background-color: black;
   transition: .2s;
-}  
+}
 
 .manageToggleBtn.active::before {
   transform: translateX(-10px);
   opacity: 0;
-}  
+}
 
 .manageToggleBtn::after {
   content: "";
@@ -250,11 +421,11 @@ main input {
   background-color: black;
   transform: rotate(90deg);
   transition: .4s;
-}  
+}
 
 .manageToggleBtn.manageToggleBtn.active::after {
   transform: rotate(0deg);
-}  
+}
 
 .manageContainer {
   z-index: 1;
@@ -274,7 +445,7 @@ main input {
   width: 1rem;
   height: 1rem;
   cursor: pointer;
-}  
+}
 
 .mngToggleBtn::before {
   content: "";
@@ -286,12 +457,12 @@ main input {
   margin: auto;
   background-color: black;
   transition: .2s;
-}  
+}
 
 .mngToggleBtn.active::before {
   transform: translateX(-10px);
   opacity: 0;
-}  
+}
 
 .mngToggleBtn::after {
   content: "";
@@ -304,11 +475,11 @@ main input {
   background-color: black;
   transform: rotate(90deg);
   transition: .4s;
-}  
+}
 
 .mngToggleBtn.mngToggleBtn.active::after {
   transform: rotate(0deg);
-}  
+}
 
 .mngContainer {
   z-index: 1;
@@ -327,7 +498,7 @@ main input {
   width: 1rem;
   height: 1rem;
   cursor: pointer;
-}  
+}
 
 .bizToggleBtn::before {
   content: "";
@@ -339,12 +510,12 @@ main input {
   margin: auto;
   background-color: black;
   transition: .2s;
-}  
+}
 
 .bizToggleBtn.active::before {
-  transform: translateX(-10px);
+  transform: translateX(-20px);
   opacity: 0;
-}  
+}
 
 .bizToggleBtn::after {
   content: "";
@@ -357,11 +528,11 @@ main input {
   background-color: black;
   transform: rotate(90deg);
   transition: .4s;
-}  
+}
 
 .bizToggleBtn.bizToggleBtn.active::after {
   transform: rotate(0deg);
-}  
+}
 
 .bizContainer {
   z-index: 1;
@@ -380,7 +551,7 @@ main input {
   width: 1rem;
   height: 1rem;
   cursor: pointer;
-}  
+}
 
 .qltToggleBtn::before {
   content: "";
@@ -392,12 +563,12 @@ main input {
   margin: auto;
   background-color: black;
   transition: .2s;
-}  
+}
 
 .qltToggleBtn.active::before {
   transform: translateX(-10px);
   opacity: 0;
-}  
+}
 
 .qltToggleBtn::after {
   content: "";
@@ -410,11 +581,11 @@ main input {
   background-color: black;
   transform: rotate(90deg);
   transition: .4s;
-}  
+}
 
 .qltToggleBtn.qltToggleBtn.active::after {
   transform: rotate(0deg);
-}  
+}
 
 .qltContainer {
   z-index: 1;
@@ -433,7 +604,7 @@ main input {
   width: 1rem;
   height: 1rem;
   cursor: pointer;
-}  
+}
 
 .sesToggleBtn::before {
   content: "";
@@ -445,12 +616,12 @@ main input {
   margin: auto;
   background-color: black;
   transition: .2s;
-}  
+}
 
 .sesToggleBtn.active::before {
   transform: translateX(-10px);
   opacity: 0;
-}  
+}
 
 .sesToggleBtn::after {
   content: "";
@@ -463,11 +634,11 @@ main input {
   background-color: black;
   transform: rotate(90deg);
   transition: .4s;
-}  
+}
 
 .sesToggleBtn.sesToggleBtn.active::after {
   transform: rotate(0deg);
-}  
+}
 
 .sesContainer {
   z-index: 1;
@@ -481,19 +652,19 @@ main input {
 
 /* 開発本部 */
 .devGroupToggleBtn,
-.dev1ToggleBtn, 
-.dev2ToggleBtn, 
-.dev3ToggleBtn, 
-.dev4ToggleBtn, 
-.dev5ToggleBtn, 
-.dev6ToggleBtn, 
+.dev1ToggleBtn,
+.dev2ToggleBtn,
+.dev3ToggleBtn,
+.dev4ToggleBtn,
+.dev5ToggleBtn,
+.dev6ToggleBtn,
 .dev7ToggleBtn {
   position: absolute;
   right: 0;
   width: 1rem;
   height: 1rem;
   cursor: pointer;
-}  
+}
 
 .devGroupToggleBtn::before,
 .dev1ToggleBtn::before,
@@ -512,7 +683,7 @@ main input {
   margin: auto;
   background-color: black;
   transition: .2s;
-}  
+}
 
 .devGroupToggleBtn.active::before,
 .dev1ToggleBtn.active::before,
@@ -524,7 +695,7 @@ main input {
 .dev7ToggleBtn.active::before {
   transform: translateX(-10px);
   opacity: 0;
-}  
+}
 
 .devGroupToggleBtn::after,
 .dev1ToggleBtn::after,
@@ -544,7 +715,7 @@ main input {
   background-color: black;
   transform: rotate(90deg);
   transition: .6s;
-}  
+}
 
 .devGroupToggleBtn.devGroupToggleBtn.active::after,
 .dev1ToggleBtn.dev1ToggleBtn.active::after,
@@ -555,7 +726,7 @@ main input {
 .dev6ToggleBtn.dev6ToggleBtn.active::after,
 .dev7ToggleBtn.dev7ToggleBtn.active::after {
   transform: rotate(0deg);
-}  
+}
 
 .devGroupContainer,
 .dev1Container,
@@ -595,7 +766,7 @@ main input {
   width: 1rem;
   height: 1rem;
   cursor: pointer;
-}  
+}
 
 .ictGroupToggleBtn::before,
 .ict1ToggleBtn::before,
@@ -614,7 +785,7 @@ main input {
   margin: auto;
   background-color: black;
   transition: .2s;
-}  
+}
 
 .ictGroupToggleBtn.active::before,
 .ict1ToggleBtn.active::before,
@@ -626,7 +797,7 @@ main input {
 .ict7ToggleBtn.active::before {
   transform: translateX(-10px);
   opacity: 0;
-}  
+}
 
 .ictGroupToggleBtn::after,
 .ict1ToggleBtn::after,
@@ -646,7 +817,7 @@ main input {
   background-color: black;
   transform: rotate(90deg);
   transition: .4s;
-}  
+}
 
 .ictGroupToggleBtn.ictGroupToggleBtn.active::after,
 .ict1ToggleBtn.ict1ToggleBtn.active::after,
@@ -657,7 +828,7 @@ main input {
 .ict6ToggleBtn.ict6ToggleBtn.active::after,
 .ict7ToggleBtn.ict7ToggleBtn.active::after {
   transform: rotate(0deg);
-}  
+}
 
 .ictGroupContainer,
 .ict1Container,
@@ -692,9 +863,8 @@ main input {
   align-items: center;
   position: relative;
   z-index: 2;
-  background-color: #f39c12;
   cursor: pointer;
-}  
+}
 
 .estToggleBtn {
   position: absolute;
@@ -702,7 +872,7 @@ main input {
   width: 1rem;
   height: 1rem;
   cursor: pointer;
-}  
+}
 
 .estToggleBtn::before {
   content: "";
@@ -714,12 +884,12 @@ main input {
   margin: auto;
   background-color: black;
   transition: .2s;
-}  
+}
 
 .estToggleBtn.active::before {
   transform: translateX(-10px);
   opacity: 0;
-}  
+}
 
 .estToggleBtn::after {
   content: "";
@@ -732,11 +902,11 @@ main input {
   background-color: black;
   transform: rotate(90deg);
   transition: .4s;
-}  
+}
 
 .estToggleBtn.estToggleBtn.active::after {
   transform: rotate(0deg);
-}  
+}
 
 .estContainer {
   z-index: 1;
